@@ -1,1 +1,1906 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Yofox African Adventures | Safari Guide Company · Arusha, Tanzania</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Josefin+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold: #C9A84C;
+    --gold-light: #E8C97A;
+    --gold-dark: #8B6914;
+    --earth: #3D2B1F;
+    --earth-mid: #5C3D2A;
+    --earth-light: #8B6347;
+    --sand: #F5EDD8;
+    --sand-dark: #E8D9B8;
+    --ivory: #FAF6EE;
+    --green-dark: #1A2E1A;
+    --green: #2D4A2D;
+    --green-light: #4A7C4A;
+    --charcoal: #1C1C1C;
+    --white: #FFFFFF;
+  }
 
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Cormorant Garamond', serif;
+    background: var(--ivory);
+    color: var(--earth);
+    overflow-x: hidden;
+  }
+
+  /* ── SCROLLBAR ── */
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: var(--earth); }
+  ::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 3px; }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.2rem 4rem;
+    background: transparent;
+    transition: background 0.4s, padding 0.4s, box-shadow 0.4s;
+  }
+  nav.scrolled {
+    background: rgba(28, 20, 14, 0.97);
+    padding: 0.8rem 4rem;
+    box-shadow: 0 2px 30px rgba(0,0,0,0.4);
+  }
+  .nav-logo {
+    display: flex; align-items: center; gap: 0.8rem; text-decoration: none;
+  }
+  .nav-logo-icon {
+    width: 44px; height: 44px;
+  }
+  .nav-logo-text {
+    display: flex; flex-direction: column; line-height: 1;
+  }
+  .nav-logo-text span:first-child {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem; font-weight: 700;
+    color: var(--gold);
+    letter-spacing: 2px;
+  }
+  .nav-logo-text span:last-child {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 0.55rem; font-weight: 300;
+    color: var(--sand); letter-spacing: 4px;
+    text-transform: uppercase; margin-top: 2px;
+  }
+  .nav-links {
+    display: flex; align-items: center; gap: 2.5rem;
+    list-style: none;
+  }
+  .nav-links a {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 0.72rem; font-weight: 400;
+    letter-spacing: 2.5px; text-transform: uppercase;
+    color: var(--sand); text-decoration: none;
+    transition: color 0.3s;
+    position: relative;
+  }
+  .nav-links a::after {
+    content: ''; position: absolute; bottom: -4px; left: 0; right: 0;
+    height: 1px; background: var(--gold);
+    transform: scaleX(0); transform-origin: left;
+    transition: transform 0.3s;
+  }
+  .nav-links a:hover { color: var(--gold-light); }
+  .nav-links a:hover::after { transform: scaleX(1); }
+  .nav-cta {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 0.72rem; font-weight: 600;
+    letter-spacing: 2px; text-transform: uppercase;
+    color: var(--earth) !important;
+    background: var(--gold);
+    padding: 0.65rem 1.5rem !important;
+    border-radius: 2px;
+    transition: background 0.3s, transform 0.2s !important;
+  }
+  .nav-cta::after { display: none !important; }
+  .nav-cta:hover { background: var(--gold-light) !important; transform: translateY(-1px); }
+
+  /* ── HERO ── */
+  #hero {
+    position: relative; height: 100vh; min-height: 700px;
+    display: flex; align-items: center; justify-content: center;
+    overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute; inset: 0;
+    background:
+      linear-gradient(to bottom, rgba(20,12,6,0.5) 0%, rgba(20,12,6,0.2) 50%, rgba(20,12,6,0.7) 100%),
+      url('images/image_01.jpg') center/cover no-repeat;
+    transform: scale(1.05);
+    animation: heroZoom 20s ease-in-out infinite alternate;
+  }
+  @keyframes heroZoom {
+    from { transform: scale(1.05); }
+    to { transform: scale(1.12); }
+  }
+  .hero-content {
+    position: relative; z-index: 1;
+    text-align: center; padding: 0 2rem;
+    animation: heroFadeUp 1.2s ease-out forwards;
+  }
+  @keyframes heroFadeUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .hero-eyebrow {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 0.75rem; font-weight: 300;
+    letter-spacing: 6px; text-transform: uppercase;
+    color: var(--gold-light);
+    margin-bottom: 1.2rem;
+    display: flex; align-items: center; justify-content: center; gap: 1rem;
+  }
+  .hero-eyebrow::before, .hero-eyebrow::after {
+    content: ''; display: block; width: 40px; height: 1px; background: var(--gold);
+  }
+  .hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(3.5rem, 8vw, 7.5rem);
+    font-weight: 900; line-height: 0.9;
+    color: var(--white);
+    margin-bottom: 0.3rem;
+  }
+  .hero-title em {
+    font-style: italic; color: var(--gold-light);
+    display: block;
+  }
+  .hero-subtitle {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.1rem, 2vw, 1.6rem);
+    font-weight: 300; font-style: italic;
+    color: rgba(245,237,216,0.9);
+    margin: 1.2rem 0 2.5rem;
+    letter-spacing: 1px;
+  }
+  .hero-buttons {
+    display: flex; align-items: center; justify-content: center; gap: 1.2rem;
+    flex-wrap: wrap;
+  }
+  .hero-buttons .btn-primary,
+  .hero-buttons .btn-outline {
+    font-size: 0.95rem;
+    padding: 1.3rem 3.2rem;
+  }
+  .btn-primary {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 0.75rem; font-weight: 600;
+    letter-spacing: 3px; text-transform: uppercase;
+    color: var(--earth); background: var(--gold);
+    border: none; padding: 1rem 2.5rem; cursor: pointer;
+    text-decoration: none; display: inline-block;
+    transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
+    border-radius: 2px;
+  }
+  .btn-primary:hover {
+    background: var(--gold-light); transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(201,168,76,0.4);
+  }
+  .btn-outline {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 0.75rem; font-weight: 400;
+    letter-spacing: 3px; text-transform: uppercase;
+    color: var(--white); background: transparent;
+    border: 1px solid rgba(255,255,255,0.5);
+    padding: 1rem 2.5rem; cursor: pointer;
+    text-decoration: none; display: inline-block;
+    transition: border-color 0.3s, color 0.3s, transform 0.2s;
+    border-radius: 2px;
+  }
+  .btn-outline:hover {
+    border-color: var(--gold); color: var(--gold-light);
+    transform: translateY(-2px);
+  }
+  .hero-scroll {
+    position: absolute; bottom: 2.5rem; left: 50%;
+    transform: translateX(-50%);
+    display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
+    color: rgba(245,237,216,0.7);
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 0.6rem; letter-spacing: 3px; text-transform: uppercase;
+  }
+  .scroll-line {
+    width: 1px; height: 40px; background: var(--gold);
+    animation: scrollPulse 2s ease-in-out infinite;
+  }
+  @keyframes scrollPulse {
+    0%, 100% { opacity: 0.4; transform: scaleY(1); }
+    50% { opacity: 1; transform: scaleY(1.2); }
+  }
+
+  /* ── SECTION SHARED ── */
+  section { padding: 7rem 0; }
+  .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+  .section-label {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 0.7rem; font-weight: 300; letter-spacing: 5px;
+    text-transform: uppercase; color: var(--gold);
+    margin-bottom: 0.8rem;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.2rem, 4vw, 3.5rem);
+    font-weight: 700; line-height: 1.1;
+    color: var(--earth);
+  }
+  .section-title em { font-style: italic; color: var(--gold-dark); }
+  .divider {
+    width: 60px; height: 2px; background: var(--gold);
+    margin: 1.5rem 0 2rem;
+  }
+  .divider.center { margin-left: auto; margin-right: auto; }
+  .lead-text {
+    font-size: 1.2rem; font-weight: 300; line-height: 1.8;
+    color: var(--earth-mid); max-width: 680px;
+  }
+
+  /* ── INTRO STRIP ── */
+  #intro-strip {
+    background: var(--earth); padding: 0;
+  }
+  .strip-inner {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+  }
+  .strip-item {
+    padding: 2.8rem 2rem; text-align: center;
+    border-right: 1px solid rgba(201,168,76,0.2);
+    transition: background 0.3s;
+  }
+  .strip-item:last-child { border-right: none; }
+  .strip-item:hover { background: rgba(201,168,76,0.08); }
+  .strip-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem; font-weight: 900;
+    color: var(--gold); line-height: 1;
+    margin-bottom: 0.3rem;
+  }
+  .strip-label {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 0.65rem; letter-spacing: 3px; text-transform: uppercase;
+    color: var(--sand-dark);
+  }
+
+  /* ── ABOUT ── */
+  #about { background: var(--ivory); }
+  .about-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 6rem; align-items: center;
+  }
+  .about-img-wrap {
+    position: relative;
+  }
+  .about-img-main {
+    width: 100%; height: 520px; object-fit: cover;
+    border-radius: 4px;
+    box-shadow: 20px 20px 60px rgba(61,43,31,0.25);
+  }
+  .about-img-accent {
+    position: absolute; bottom: -40px; right: -40px;
+    width: 200px; height: 200px; object-fit: cover;
+    border: 6px solid var(--ivory); border-radius: 4px;
+    box-shadow: 10px 10px 40px rgba(61,43,31,0.2);
+  }
+  .about-badge {
+    position: absolute; top: 30px; left: -30px;
+    width: 110px; height: 110px;
+    background: var(--gold); border-radius: 50%;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    box-shadow: 0 8px 30px rgba(201,168,76,0.5);
+  }
+  .about-badge span:first-child {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem; font-weight: 900; color: var(--earth); line-height: 1;
+  }
+  .about-badge span:last-child {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 0.5rem; letter-spacing: 2px; text-transform: uppercase;
+    color: var(--earth); text-align: center; line-height: 1.4;
+  }
+  .about-content .lead-text { margin-bottom: 2rem; }
+  .about-features {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem;
+    margin: 2rem 0;
+  }
+  .feat-item {
+    display: flex; align-items: flex-start; gap: 0.8rem;
+  }
+  .feat-icon {
+    width: 36px; height: 36px; min-width: 36px;
+    background: rgba(201,168,76,0.15); border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1rem;
+  }
+  .feat-text { font-size: 0.95rem; line-height: 1.5; color: var(--earth-mid); }
+  .feat-text strong {
+    display: block; font-family: 'Josefin Sans', sans-serif;
+    font-size: 0.7rem; letter-spacing: 1.5px; text-transform: uppercase;
+    color: var(--earth); margin-bottom: 0.2rem;
+  }
+
+  /* ── SAFARIS ── */
+  #safaris { background: var(--sand); }
+  .safaris-header { text-align: center; margin-bottom: 4rem; }
+  .safaris-header .lead-text { margin: 0 auto; text-align: center; }
+  .safari-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+  .safari-card {
+    background: var(--white); border-radius: 4px; overflow: hidden;
+    box-shadow: 0 4px 20px rgba(61,43,31,0.08);
+    transition: transform 0.35s, box-shadow 0.35s;
+    cursor: pointer;
+  }
+  .safari-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 16px 50px rgba(61,43,31,0.18);
+  }
+  .safari-card.featured {
+    grid-column: span 2;
+  }
+  .safari-img {
+    width: 100%; height: 260px; object-fit: cover;
+    transition: transform 0.5s;
+    display: block;
+  }
+  .safari-card.featured .safari-img { height: 320px; }
+  .safari-card:hover .safari-img { transform: scale(1.04); }
+  .safari-img-wrap { overflow: hidden; position: relative; }
+  .safari-tag {
+    position: absolute; top: 1rem; left: 1rem;
+    background: var(--gold); color: var(--earth);
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 0.6rem; font-weight: 600;
+    letter-spacing: 2px; text-transform: uppercase;
+    padding: 0.35rem 0.8rem; border-radius: 2px;
+  }
+  .safari-body { padding: 1.8rem; }
+  .safari-body h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem; font-weight: 700;
+    color: var(--earth); margin-bottom: 0.5rem;
+  }
+  .safari-body p {
+    font-size: 0.95rem; line-height: 1.7;
+    color: var(--earth-mid); margin-bottom: 1.2rem;
+  }
+  .safari-meta {
+    display: flex; gap: 1.5rem; flex-wrap: wrap;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 0.65rem; letter-spacing: 1.5px; text-transform: uppercase;
+    color: var(--earth-light);
+    padding-top: 1rem; border-top: 1px solid var(--sand-dark);
+  }
+  .safari-meta span { display: flex; align-items: center; gap: 0.4rem; }
+
+  /* ── PARKS BANNER ── */
+  #parks {
+    background: var(--green-dark);
+    padding: 5rem 0;
+  }
+  .parks-inner {
+    text-align: center;
+  }
+  .parks-inner .section-title { color: var(--sand); }
+  .parks-inner .section-label { color: var(--gold-light); }
+  .parks-inner .divider { background: var(--gold); }
+  .parks-scroll {
+    display: flex; gap: 0; flex-wrap: wrap;
+    justify-content: center; margin-top: 3rem;
+  }
+  .park-pill {
+    padding: 0.8rem 1.8rem;
+    border: 1px solid rgba(201,168,76,0.3);
+    color: var(--sand-dark);
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 0.7rem; letter-spacing: 2px; text-transform: uppercase;
+    transition: all 0.3s; cursor: default;
+    margin: 0.3rem;
+    border-radius: 30px;
+  }
+  .park-pill:hover {
+    background: var(--gold); color: var(--earth);
+    border-color: var(--gold);
+    transform: scale(1.04);
+  }
+
+  /* ── EXPERIENCES ── */
+  #experiences { background: var(--ivory); }
+  .exp-grid {
+    display: grid; grid-template-columns: repeat(2, 1fr);
+    gap: 2rem; margin-top: 3.5rem;
+  }
+  .exp-card {
+    display: flex; gap: 1.5rem; align-items: flex-start;
+    padding: 2rem; border-radius: 4px;
+    background: var(--white);
+    border-left: 3px solid var(--gold);
+    box-shadow: 0 2px 12px rgba(61,43,31,0.06);
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  .exp-card:hover {
+    transform: translateX(6px);
+    box-shadow: 0 8px 30px rgba(61,43,31,0.1);
+  }
+  .exp-icon {
+    font-size: 2.2rem; min-width: 50px; text-align: center;
+    padding-top: 0.3rem;
+  }
+  .exp-text h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem; font-weight: 700;
+    color: var(--earth); margin-bottom: 0.6rem;
+  }
+  .exp-text p {
+    font-size: 0.95rem; line-height: 1.7; color: var(--earth-mid);
+  }
+
+  /* ── GALLERY ── */
+  #gallery { background: var(--earth); padding: 7rem 0 4rem; }
+  .gallery-header { text-align: center; margin-bottom: 3rem; }
+  .gallery-header .section-title { color: var(--sand); }
+  .gallery-header .section-label { color: var(--gold-light); }
+  .gallery-header .divider { background: var(--gold); }
+  .gallery-header .lead-text { color: var(--sand-dark); margin: 0 auto; }
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: 200px;
+    gap: 8px;
+  }
+  .g-item {
+    overflow: hidden; border-radius: 3px; cursor: pointer;
+    position: relative;
+  }
+  .g-item img {
+    width: 100%; height: 100%; object-fit: cover;
+    transition: transform 0.5s;
+    display: block;
+  }
+  .g-item:hover img { transform: scale(1.08); }
+  .g-item.tall { grid-row: span 2; }
+  .g-item.wide { grid-column: span 2; }
+  .g-item::after {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(28,20,14,0.6), transparent);
+    opacity: 0; transition: opacity 0.3s;
+  }
+  .g-item:hover::after { opacity: 1; }
+  .gallery-note {
+    text-align: center; margin-top: 2.5rem;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 0.7rem; letter-spacing: 2px;
+    color: rgba(245,237,216,0.5); text-transform: uppercase;
+  }
+
+  /* ── PARTNERS ── */
+  #partners { background: var(--sand); padding: 7rem 0; }
+  .partners-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 4rem; align-items: center; margin-top: 3rem;
+  }
+  .partner-box {
+    background: var(--white); padding: 3rem;
+    border-radius: 4px;
+    box-shadow: 0 4px 20px rgba(61,43,31,0.08);
+    border-top: 4px solid var(--gold);
+  }
+  .partner-box h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem; font-weight: 700;
+    color: var(--earth); margin-bottom: 1rem;
+  }
+  .partner-box p {
+    font-size: 1rem; line-height: 1.8;
+    color: var(--earth-mid); margin-bottom: 1.5rem;
+  }
+  .partner-perks {
+    list-style: none; margin-bottom: 2rem;
+  }
+  .partner-perks li {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 0.72rem; letter-spacing: 1px;
+    color: var(--earth-mid); padding: 0.5rem 0;
+    border-bottom: 1px solid var(--sand-dark);
+    display: flex; align-items: center; gap: 0.7rem;
+  }
+  .partner-perks li::before {
+    content: ''; display: block;
+    width: 6px; height: 6px; min-width: 6px;
+    background: var(--gold); border-radius: 50%;
+  }
+
+  /* ── REVIEWS ── */
+  #reviews { background: var(--ivory); }
+  .reviews-header { text-align: center; margin-bottom: 4rem; }
+  .stars-total {
+    display: flex; align-items: center; justify-content: center; gap: 0.5rem;
+    margin-bottom: 1rem;
+  }
+  .stars { color: var(--gold); font-size: 1.3rem; letter-spacing: 3px; }
+  .stars-count {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 0.75rem; letter-spacing: 2px; color: var(--earth-light);
+  }
+  .reviews-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+  .review-card {
+    background: var(--white); padding: 2.2rem;
+    border-radius: 4px;
+    box-shadow: 0 2px 12px rgba(61,43,31,0.06);
+    position: relative;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  .review-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(61,43,31,0.12);
+  }
+  .review-quote {
+    font-size: 4rem; line-height: 0.5;
+    color: var(--gold); font-family: 'Playfair Display', serif;
+    margin-bottom: 1rem;
+  }
+  .review-text {
+    font-size: 1rem; line-height: 1.8; font-style: italic;
+    color: var(--earth-mid); margin-bottom: 1.5rem;
+  }
+  .review-author {
+    display: flex; align-items: center; gap: 1rem;
+    padding-top: 1rem; border-top: 1px solid var(--sand-dark);
+  }
+  .review-avatar {
+    width: 44px; height: 44px; border-radius: 50%;
+    background: var(--gold); display: flex;
+    align-items: center; justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem; color: var(--earth); font-weight: 700;
+  }
+  .review-name {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 0.72rem; font-weight: 600;
+    letter-spacing: 1px; text-transform: uppercase; color: var(--earth);
+  }
+  .review-location {
+    font-size: 0.8rem; color: var(--earth-light);
+  }
+  .review-stars { color: var(--gold); font-size: 0.8rem; }
+
+  /* ── CONTACT ── */
+  #contact { background: var(--earth); padding: 7rem 0; }
+  .contact-inner {
+    display: grid; grid-template-columns: 1fr 1.2fr;
+    gap: 6rem; align-items: start;
+  }
+  .contact-info .section-title { color: var(--sand); }
+  .contact-info .section-label { color: var(--gold-light); }
+  .contact-info .divider { background: var(--gold); }
+  .contact-info .lead-text {
+    color: rgba(245,237,216,0.8); margin-bottom: 3rem;
+  }
+  .contact-details { display: flex; flex-direction: column; gap: 1.5rem; }
+  .c-detail {
+    display: flex; align-items: flex-start; gap: 1rem;
+  }
+  .c-icon {
+    width: 44px; height: 44px; min-width: 44px;
+    background: rgba(201,168,76,0.2); border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.1rem; border: 1px solid rgba(201,168,76,0.3);
+  }
+  .c-text { font-size: 0.95rem; color: rgba(245,237,216,0.7); }
+  .c-text strong {
+    display: block; font-family: 'Josefin Sans', sans-serif;
+    font-size: 0.65rem; letter-spacing: 2px; text-transform: uppercase;
+    color: var(--gold-light); margin-bottom: 0.2rem;
+  }
+  .contact-form {
+    background: var(--ivory); padding: 3rem;
+    border-radius: 4px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+  }
+  .form-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem; font-weight: 700;
+    color: var(--earth); margin-bottom: 0.5rem;
+  }
+  .form-subtitle {
+    font-size: 0.9rem; color: var(--earth-light);
+    margin-bottom: 2rem;
+  }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .form-group { margin-bottom: 1.2rem; }
+  .form-group label {
+    display: block; font-family: 'Josefin Sans', sans-serif;
+    font-size: 0.65rem; letter-spacing: 2px; text-transform: uppercase;
+    color: var(--earth-mid); margin-bottom: 0.5rem;
+  }
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    width: 100%; padding: 0.85rem 1rem;
+    background: var(--white); border: 1px solid var(--sand-dark);
+    border-radius: 3px; font-family: 'Cormorant Garamond', serif;
+    font-size: 1rem; color: var(--earth);
+    transition: border-color 0.3s, box-shadow 0.3s;
+    outline: none;
+  }
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    border-color: var(--gold);
+    box-shadow: 0 0 0 3px rgba(201,168,76,0.15);
+  }
+  .form-group textarea { height: 120px; resize: vertical; }
+  .form-group select { cursor: pointer; }
+  .form-submit {
+    width: 100%; padding: 1.1rem;
+    background: var(--gold); border: none;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 0.75rem; font-weight: 600;
+    letter-spacing: 3px; text-transform: uppercase;
+    color: var(--earth); cursor: pointer; border-radius: 3px;
+    transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
+    margin-top: 0.5rem;
+  }
+  .form-submit:hover {
+    background: var(--gold-light); transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(201,168,76,0.4);
+  }
+  .form-note {
+    font-size: 0.8rem; color: var(--earth-light);
+    text-align: center; margin-top: 1rem;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--charcoal); padding: 4rem 0 2rem;
+  }
+  .footer-grid {
+    display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 4rem; margin-bottom: 3rem;
+  }
+  .footer-about p {
+    font-size: 0.9rem; line-height: 1.8;
+    color: rgba(245,237,216,0.5); margin-top: 1rem;
+  }
+  .footer-col h4 {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 0.7rem; font-weight: 600;
+    letter-spacing: 3px; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 1.2rem;
+  }
+  .footer-col ul { list-style: none; }
+  .footer-col ul li {
+    margin-bottom: 0.6rem;
+  }
+  .footer-col ul li a {
+    font-size: 0.9rem; color: rgba(245,237,216,0.5);
+    text-decoration: none; transition: color 0.3s;
+  }
+  .footer-col ul li a:hover { color: var(--gold-light); }
+  .footer-bottom {
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    display: flex; justify-content: space-between; align-items: center;
+    flex-wrap: wrap; gap: 1rem;
+  }
+  .footer-bottom p {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 0.65rem; letter-spacing: 2px; text-transform: uppercase;
+    color: rgba(245,237,216,0.3);
+  }
+  .social-links {
+    display: flex; gap: 1rem;
+  }
+  .social-link {
+    width: 36px; height: 36px; border-radius: 50%;
+    background: rgba(201,168,76,0.15);
+    border: 1px solid rgba(201,168,76,0.3);
+    display: flex; align-items: center; justify-content: center;
+    text-decoration: none; color: var(--gold-light);
+    font-size: 0.85rem; transition: background 0.3s, transform 0.2s;
+  }
+  .social-link:hover {
+    background: var(--gold); color: var(--earth);
+    transform: translateY(-2px);
+  }
+
+  /* ── LIGHTBOX ── */
+  .lightbox {
+    display: none; position: fixed; inset: 0; z-index: 9999;
+    background: rgba(0,0,0,0.95);
+    align-items: center; justify-content: center;
+  }
+  .lightbox.active { display: flex; }
+  .lightbox img {
+    max-width: 90vw; max-height: 85vh;
+    object-fit: contain; border-radius: 2px;
+  }
+  .lightbox-close {
+    position: fixed; top: 2rem; right: 2rem;
+    width: 44px; height: 44px; background: rgba(201,168,76,0.3);
+    border: none; cursor: pointer; border-radius: 50%;
+    color: var(--gold-light); font-size: 1.2rem;
+    display: flex; align-items: center; justify-content: center;
+    transition: background 0.3s;
+  }
+  .lightbox-close:hover { background: var(--gold); color: var(--earth); }
+
+  /* ── FORM SUCCESS ── */
+  .success-msg {
+    display: none; text-align: center; padding: 2rem;
+  }
+  .success-msg.visible { display: block; }
+  .success-msg .icon { font-size: 3rem; margin-bottom: 1rem; }
+  .success-msg h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem; color: var(--green); margin-bottom: 0.5rem;
+  }
+
+  /* ── MOBILE MENU ── */
+  .hamburger {
+    display: none; flex-direction: column; gap: 5px; cursor: pointer;
+    padding: 4px;
+  }
+  .hamburger span {
+    display: block; width: 24px; height: 2px; background: var(--sand);
+    transition: all 0.3s;
+  }
+
+  /* ── ANIMATIONS ON SCROLL ── */
+  .reveal {
+    opacity: 0; transform: translateY(30px);
+    transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+  .reveal-left {
+    opacity: 0; transform: translateX(-40px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  }
+  .reveal-left.visible { opacity: 1; transform: translateX(0); }
+  .reveal-right {
+    opacity: 0; transform: translateX(40px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  }
+  .reveal-right.visible { opacity: 1; transform: translateX(0); }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 1024px) {
+    nav { padding: 1.2rem 2rem; }
+    nav.scrolled { padding: 0.8rem 2rem; }
+    .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+    .about-img-wrap { max-width: 600px; margin: 0 auto; }
+    .safari-grid { grid-template-columns: 1fr 1fr; }
+    .safari-card.featured { grid-column: span 2; }
+    .contact-inner { grid-template-columns: 1fr; gap: 3rem; }
+    .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
+  }
+  @media (max-width: 768px) {
+    .nav-links { display: none; }
+    .hamburger { display: flex; }
+    section { padding: 5rem 0; }
+    .strip-inner { grid-template-columns: repeat(2,1fr); }
+    .strip-item:nth-child(2) { border-right: none; }
+    .safari-grid { grid-template-columns: 1fr; }
+    .safari-card.featured { grid-column: span 1; }
+    .exp-grid { grid-template-columns: 1fr; }
+    .reviews-grid { grid-template-columns: 1fr; }
+    .gallery-grid { grid-template-columns: repeat(2,1fr); grid-auto-rows: 160px; }
+    .g-item.wide { grid-column: span 1; }
+    .partners-grid { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .form-row { grid-template-columns: 1fr; }
+    .contact-form { padding: 2rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ───────────── NAV ───────────── -->
+<nav id="navbar">
+  <a href="#" class="nav-logo">
+    <svg class="nav-logo-icon" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="22" cy="22" r="21" stroke="#C9A84C" stroke-width="1.5"/>
+      <!-- Acacia tree silhouette -->
+      <path d="M22 36 L22 22" stroke="#C9A84C" stroke-width="2" stroke-linecap="round"/>
+      <ellipse cx="22" cy="18" rx="12" ry="7" fill="#C9A84C" opacity="0.85"/>
+      <ellipse cx="15" cy="20" rx="7" ry="5" fill="#C9A84C" opacity="0.65"/>
+      <ellipse cx="29" cy="20" rx="7" ry="5" fill="#C9A84C" opacity="0.65"/>
+    </svg>
+    <div class="nav-logo-text">
+      <span>YOFOX</span>
+      <span>African Adventures</span>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#safaris">Safaris</a></li>
+    <li><a href="#experiences">Experiences</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#accommodation">Stay</a></li>
+    <li><a href="#team">Team</a></li>
+    <li><a href="#partners">Partners</a></li>
+    <li><a href="#contact" class="nav-cta">Book Now</a></li>
+  </ul>
+  <div class="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- ───────────── HERO ───────────── -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">Arusha, Tanzania</div>
+    <h1 class="hero-title">
+      Africa Awaits
+      <em>Your Adventure<br>Starts Here</em>
+    </h1>
+    <p class="hero-subtitle">Bespoke safari experiences crafted by expert local guides</p>
+    <div class="hero-buttons">
+      <a href="#safaris" class="btn-primary">Explore Safaris</a>
+      <a href="#contact" class="btn-outline">Plan My Trip</a>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <div class="scroll-line"></div>
+    <span>Scroll</span>
+  </div>
+</section>
+
+<!-- ───────────── STRIP ───────────── -->
+<div id="intro-strip">
+  <div class="strip-inner">
+    <div class="strip-item">
+      <div class="strip-num">6+</div>
+      <div class="strip-label">National Parks</div>
+    </div>
+    <div class="strip-item">
+      <div class="strip-num">100%</div>
+      <div class="strip-label">Tailored Itineraries</div>
+    </div>
+  </div>
+</div>
+
+<!-- ───────────── ABOUT ───────────── -->
+<section id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-img-wrap reveal-left">
+        <img class="about-img-main" src="images/image_02.jpg" alt="Safari guide in Tanzania" loading="lazy">
+        <img class="about-img-accent" src="images/image_03.jpg" alt="Acacia tree at sunset" loading="lazy">
+        <div class="about-badge">
+          <span>5★</span>
+          <span>Rated Safari Company</span>
+        </div>
+      </div>
+      <div class="about-content reveal-right">
+        <div class="section-label">Our Story</div>
+        <h2 class="section-title">Born from a <em>love of the wild</em></h2>
+        <div class="divider"></div>
+        <p class="lead-text">
+          Yofox African Adventures was founded in Arusha — the gateway to Tanzania's greatest wilderness — by guides who grew up alongside these incredible landscapes. We believe every safari should be as unique as the person taking it.
+        </p>
+        <p style="font-size:1rem; line-height:1.8; color:var(--earth-mid); margin-bottom:1.5rem;">
+          With our expert team on the ground in Tanzania and a dedicated representative in the UK, we make world-class African adventures accessible to clients from every corner of the globe. Every itinerary is lovingly crafted around your dreams, pace, and budget.
+        </p>
+        <div class="about-features">
+          <div class="feat-item">
+            <div class="feat-icon">🌍</div>
+            <div class="feat-text">
+              <strong>Local Expertise</strong>
+              Born and raised in Tanzania, our guides know every trail
+            </div>
+          </div>
+          <div class="feat-item">
+            <div class="feat-icon">🇬🇧</div>
+            <div class="feat-text">
+              <strong>UK Representative</strong>
+              Easy communication for UK & European clients
+            </div>
+          </div>
+          <div class="feat-item">
+            <div class="feat-icon">✨</div>
+            <div class="feat-text">
+              <strong>Fully Bespoke</strong>
+              Every holiday designed around your wishes
+            </div>
+          </div>
+          <div class="feat-item">
+            <div class="feat-icon">🤝</div>
+            <div class="feat-text">
+              <strong>Worldwide Clients</strong>
+              We welcome travellers from every nation
+            </div>
+          </div>
+        </div>
+        <a href="#contact" class="btn-primary">Start Planning</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ───────────── SAFARIS ───────────── -->
+<section id="safaris">
+  <div class="container">
+    <div class="safaris-header reveal">
+      <div class="section-label">Safari Packages</div>
+      <h2 class="section-title">Extraordinary <em>Journeys</em></h2>
+      <div class="divider center"></div>
+      <p class="lead-text">From the Serengeti's Great Migration to Ngorongoro's ancient crater — experience Tanzania's wildlife wonders with guides who know each landscape intimately.</p>
+    </div>
+    <div class="safari-grid">
+      <div class="safari-card featured reveal">
+        <div class="safari-img-wrap">
+          <span class="safari-tag">Most Popular</span>
+          <img class="safari-img" src="images/image_04.jpg" alt="Serengeti Safari" loading="lazy">
+        </div>
+        <div class="safari-body">
+          <h3>Serengeti Safari</h3>
+          <p>Witness one of nature's greatest spectacles — millions of wildebeest and zebra thundering across the plains. Our guides know exactly where to position you for breathtaking, intimate sightings.</p>
+          <div class="safari-meta">
+            <span>📅 7–14 Days</span>
+            <span>👥 Private or Group</span>
+            <span>🏕️ Luxury Camps Available</span>
+            <span>📍 Serengeti NP</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="safari-card reveal">
+        <div class="safari-img-wrap">
+          <span class="safari-tag">Iconic</span>
+          <img class="safari-img" src="images/image_05.jpg" alt="Ngorongoro Crater" loading="lazy">
+        </div>
+        <div class="safari-body">
+          <h3>Ngorongoro Crater</h3>
+          <p>Descend into the world's largest intact volcanic caldera — a natural enclosure teeming with the Big Five. An unmissable Tanzanian icon.</p>
+          <div class="safari-meta">
+            <span>📅 2–5 Days</span>
+            <span>🦁 Big Five</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="safari-card reveal">
+        <div class="safari-img-wrap">
+          <span class="safari-tag">Adventure</span>
+          <img class="safari-img" src="images/image_06.jpg" alt="Kilimanjaro" loading="lazy">
+        </div>
+        <div class="safari-body">
+          <h3>Kilimanjaro Packages</h3>
+          <p>Conquer Africa's highest peak. We offer all major routes — Lemosho, Machame, Rongai — with full support teams, porters and expert mountain guides.</p>
+          <div class="safari-meta">
+            <span>📅 6–10 Days</span>
+            <span>⛰️ 5,895m Summit</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="safari-card reveal">
+        <div class="safari-img-wrap">
+          <span class="safari-tag">Paradise</span>
+          <img class="safari-img" src="images/image_07.jpg" alt="Zanzibar Beach" loading="lazy">
+        </div>
+        <div class="safari-body">
+          <h3>Zanzibar Island Escape</h3>
+          <p>Combine your safari with a blissful beach retreat on the Spice Island. Turquoise waters, white sands, Stone Town's history — perfect post-safari relaxation.</p>
+          <div class="safari-meta">
+            <span>📅 3–7 Days</span>
+            <span>🏖️ Beach & Culture</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="safari-card reveal">
+        <div class="safari-img-wrap">
+          <span class="safari-tag">Cultural</span>
+          <img class="safari-img" src="images/image_08.jpg" alt="Coffee Plantation" loading="lazy">
+        </div>
+        <div class="safari-body">
+          <h3>Coffee, Waterfalls & Hot Springs</h3>
+          <p>Explore the lush Kilimanjaro foothills — visit working coffee plantations, swim under hidden waterfalls, and soak in natural hot springs with the mountain as your backdrop.</p>
+          <div class="safari-meta">
+            <span>📅 1–3 Days</span>
+            <span>🌿 Nature & Culture</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="safari-card reveal">
+        <div class="safari-img-wrap">
+          <span class="safari-tag">Essential</span>
+          <img class="safari-img" src="images/image_09.jpg" alt="Airport Transfer Tanzania" loading="lazy">
+        </div>
+        <div class="safari-body">
+          <h3>Airport Transfers & Logistics</h3>
+          <p>Seamless arrivals and departures. Our team meets you at Kilimanjaro or Dar es Salaam airport and handles every transfer — so your adventure starts the moment you land.</p>
+          <div class="safari-meta">
+            <span>✈️ All Airports</span>
+            <span>🚐 Private Vehicles</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="text-align:center; margin-top:3rem;" class="reveal">
+      <a href="#contact" class="btn-primary">Request Custom Package</a>
+    </div>
+  </div>
+</section>
+
+<!-- ───────────── PARKS BANNER ───────────── -->
+<section id="parks">
+  <div class="container">
+    <div class="parks-inner reveal">
+      <div class="section-label">Where We Operate</div>
+      <h2 class="section-title" style="color:var(--sand);">All Major Tanzania <em style="color:var(--gold-light);">National Parks</em></h2>
+      <div class="divider center" style="background:var(--gold);"></div>
+      <p style="color:rgba(245,237,216,0.7); font-size:1.1rem; max-width:600px; margin:0 auto 2.5rem; line-height:1.8;">
+        We cover every corner of Tanzania's extraordinary wilderness — from savanna to rainforest to Indian Ocean shore.
+      </p>
+      <div class="parks-scroll">
+        <div class="park-pill">Serengeti</div>
+        <div class="park-pill">Ngorongoro</div>
+        <div class="park-pill">Tarangire</div>
+        <div class="park-pill">Lake Manyara</div>
+        <div class="park-pill">Arusha</div>
+        <div class="park-pill">Kilimanjaro</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ───────────── EXPERIENCES ───────────── -->
+<section id="experiences">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-label">Beyond the Safari</div>
+      <h2 class="section-title">Unique <em>Experiences</em></h2>
+      <div class="divider"></div>
+      <p class="lead-text">Tanzania offers so much more than wildlife. Every journey with Yofox can be enriched with these unforgettable add-ons.</p>
+    </div>
+    <div class="exp-grid">
+      <div class="exp-card reveal">
+        <div class="exp-icon">🏔️</div>
+        <div class="exp-text">
+          <h3>Kilimanjaro Treks</h3>
+          <p>Every level of ambition catered for — whether you want to summit the roof of Africa or enjoy the stunning lower forest and moorland zones.</p>
+        </div>
+      </div>
+      <div class="exp-card reveal">
+        <div class="exp-icon">🏝️</div>
+        <div class="exp-text">
+          <h3>Zanzibar & Stone Town</h3>
+          <p>Explore the UNESCO-listed labyrinthine streets of Stone Town, snorkel vibrant coral reefs, and relax on some of the world's most beautiful beaches.</p>
+        </div>
+      </div>
+      <div class="exp-card reveal">
+        <div class="exp-icon">💧</div>
+        <div class="exp-text">
+          <h3>Waterfalls & Hot Springs</h3>
+          <p>Discover secluded cascades tumbling through tropical forest, and natural hot springs warmed by volcanic activity beneath Africa's great rift valley.</p>
+        </div>
+      </div>
+      <div class="exp-card reveal">
+        <div class="exp-icon">🌅</div>
+        <div class="exp-text">
+          <h3>Cultural Village Visits</h3>
+          <p>Spend time with Maasai communities, learn about traditional ways of life, and experience the warmth and hospitality of Tanzania's diverse peoples.</p>
+        </div>
+      </div>
+      <div class="exp-card reveal">
+        <div class="exp-icon">☕</div>
+        <div class="exp-text">
+          <h3>Coffee Plantation Tours</h3>
+          <p>Walk through fragrant Arabica plantations on the slopes of Kilimanjaro, meet the farmers, and taste the freshest coffee you'll ever drink — from bean to cup.</p>
+        </div>
+      </div>
+      <div class="exp-card reveal">
+        <div class="exp-icon">✈️</div>
+        <div class="exp-text">
+          <h3>Seamless Airport Transfers</h3>
+          <p>Our team handles all logistics — private vehicles, hotel pickups, internal flights — so you can focus entirely on the magic of being in Africa.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ───────────── GALLERY ───────────── -->
+<section id="gallery">
+  <div class="container">
+    <div class="gallery-header reveal">
+      <div class="section-label">Gallery</div>
+      <h2 class="section-title">Tanzania Through <em style="color:var(--gold-light);">Our Lens</em></h2>
+      <div class="divider center"></div>
+      <p class="lead-text" style="color:rgba(245,237,216,0.7);">
+        A glimpse of the extraordinary landscapes and wildlife awaiting you. Your own photos are coming soon!
+      </p>
+    </div>
+        <div class="gallery-grid">
+      <div class="g-item tall" onclick="openLightbox(this)">
+        <img src="images/image_10.jpg" alt="Elephant portrait" loading="lazy">
+      </div>
+      <div class="g-item" onclick="openLightbox(this)">
+        <img src="images/image_11.jpg" alt="Yofox guide with binoculars" loading="lazy">
+      </div>
+      <div class="g-item" onclick="openLightbox(this)">
+        <img src="images/image_12.jpg" alt="Lion on the plains" loading="lazy">
+      </div>
+      <div class="g-item tall" onclick="openLightbox(this)">
+        <img src="images/image_13.jpg" alt="Safari guide portrait" loading="lazy">
+      </div>
+      <div class="g-item wide" onclick="openLightbox(this)">
+        <img src="images/image_14.jpg" alt="Zebra herd Serengeti" loading="lazy">
+      </div>
+      <div class="g-item" onclick="openLightbox(this)">
+        <img src="images/image_15.jpg" alt="Lions resting" loading="lazy">
+      </div>
+      <div class="g-item" onclick="openLightbox(this)">
+        <img src="images/image_16.jpg" alt="Luxury safari dining" loading="lazy">
+      </div>
+      <div class="g-item" onclick="openLightbox(this)">
+        <img src="images/image_17.jpg" alt="Flamingos on the lake" loading="lazy">
+      </div>
+      <div class="g-item wide" onclick="openLightbox(this)">
+        <img src="images/image_18.jpg" alt="Safari lodge pool" loading="lazy">
+      </div>
+      <div class="g-item" onclick="openLightbox(this)">
+        <img src="images/image_19.jpg" alt="Giraffes Tanzania" loading="lazy">
+      </div>
+      <div class="g-item" onclick="openLightbox(this)">
+        <img src="images/image_20.jpg" alt="Giraffe landscape" loading="lazy">
+      </div>
+      <div class="g-item" onclick="openLightbox(this)">
+        <img src="images/image_21.jpg" alt="Lion close up" loading="lazy">
+      </div>
+    </div>
+    <p class="gallery-note">Click any image to enlarge · All photography from real Yofox African Adventures expeditions</p>
+  </div>
+</section>
+
+
+<!-- ───────────── ACCOMMODATION ───────────── -->
+<section id="accommodation" style="background:var(--ivory); padding:7rem 0;">
+  <div class="container">
+    <div class="reveal" style="text-align:center; margin-bottom:4rem;">
+      <div class="section-label">Where You'll Sleep</div>
+      <h2 class="section-title">Exceptional <em>Accommodation</em></h2>
+      <div class="divider center"></div>
+      <p class="lead-text" style="margin:0 auto; text-align:center;">
+        From five-star lodges to starlit bush camping, every night in Tanzania tells its own story. We match your accommodation perfectly to your style, budget and adventure.
+      </p>
+    </div>
+
+    <!-- Accommodation Tabs -->
+    <div class="accom-tabs reveal">
+      <button class="accom-tab active" onclick="showAccom('luxury')">✦ Luxury Lodges</button>
+      <button class="accom-tab" onclick="showAccom('tented')">⛺ Tented Camps</button>
+      <button class="accom-tab" onclick="showAccom('camping')">🔥 Bush Camping</button>
+    </div>
+
+    <!-- LUXURY -->
+    <div class="accom-panel" id="accom-luxury">
+      <div class="accom-hero-img reveal">
+        <img src="images/image_22.jpg" alt="Luxury lodge deck overlooking Tanzania">
+        <div class="accom-hero-overlay">
+          <div class="accom-hero-text">
+            <div class="accom-tier">Luxury Lodges & Camps</div>
+            <h3>Wake up to Africa's finest views</h3>
+            <p>Hand-picked lodges offering world-class service, gourmet cuisine and breathtaking locations inside Tanzania's greatest parks. Every stay is matched to your taste, from intimate boutique retreats to five-star grandeur.</p>
+          </div>
+        </div>
+      </div>
+      <div class="accom-features" style="justify-content:center; margin-top:2rem;">
+        <span>🏊 Pools & Spas</span><span>🍽️ Gourmet Dining</span><span>🛏️ Premium Suites</span><span>🌅 Prime Locations</span>
+      </div>
+    </div>
+
+    <!-- TENTED CAMPS -->
+    <div class="accom-panel hidden" id="accom-tented">
+      <div class="accom-hero-img reveal">
+        <img src="images/image_27.jpg" alt="Luxury tented camp interior">
+        <div class="accom-hero-overlay">
+          <div class="accom-hero-text">
+            <div class="accom-tier">Luxury Tented Camps</div>
+            <h3>The romance of canvas under African skies</h3>
+            <p>The classic safari experience — spacious tents with proper beds, en-suite bathrooms and sundowner service, right in the heart of the wilderness. Some camps stay put, others move with the migration season by season.</p>
+          </div>
+        </div>
+      </div>
+      <div class="accom-features" style="justify-content:center; margin-top:2rem;">
+        <span>🛁 En-Suite Bathrooms</span><span>🥂 Sundowners</span><span>🍽️ Open-Air Dining</span><span>🌟 Stargazing</span>
+      </div>
+    </div>
+
+    <!-- CAMPING -->
+    <div class="accom-panel hidden" id="accom-camping">
+      <div class="accom-hero-img reveal">
+        <img src="images/image_32.jpg" alt="Bush camping Tanzania">
+        <div class="accom-hero-overlay">
+          <div class="accom-hero-text">
+            <div class="accom-tier">Bush Camping</div>
+            <h3>Africa at its most raw and real</h3>
+            <p>For the true adventurer — sleep under a billion stars with nothing between you and the wild. The most authentic African experience you will ever have, fully supported by our expert team.</p>
+          </div>
+        </div>
+      </div>
+      <div class="accom-camping-features reveal" style="margin-top:2rem;">
+        <h4 style="font-family:'Playfair Display',serif; font-size:1.3rem; color:var(--earth); margin-bottom:1.5rem; text-align:center;">What's included in your camping package</h4>
+        <div class="camp-feat-list">
+          <div class="camp-feat">
+            <span class="camp-feat-icon">⛺</span>
+            <div><strong>All Equipment Provided</strong><p>Quality tents, sleeping bags, roll mats and camp furniture — all supplied and set up by our team</p></div>
+          </div>
+          <div class="camp-feat">
+            <span class="camp-feat-icon">👨‍🍳</span>
+            <div><strong>Camp Chef & Meals</strong><p>Three delicious meals a day cooked fresh over fire — from full English breakfasts to evening stews under the stars</p></div>
+          </div>
+          <div class="camp-feat">
+            <span class="camp-feat-icon">🛡️</span>
+            <div><strong>Safety & Security</strong><p>Experienced guides on watch throughout the night — you are safe and in expert hands at all times</p></div>
+          </div>
+          <div class="camp-feat">
+            <span class="camp-feat-icon">🚿</span>
+            <div><strong>Bush Shower & Toilet</strong><p>Portable hot bush showers and private toilet tents — surprisingly comfortable in the middle of nowhere</p></div>
+          </div>
+        </div>
+        <div style="text-align:center; margin-top:2rem;">
+          <a href="#contact" class="btn-primary">Enquire About Camping</a>
+        </div>
+      </div>
+    </div>
+
+    <div style="text-align:center; margin-top:4rem;" class="reveal">
+      <p style="font-size:1.1rem; font-style:italic; color:var(--earth-mid); margin-bottom:1.5rem;">Not sure which option is right for you? We'll help you choose.</p>
+      <a href="#contact" class="btn-primary">Discuss Accommodation Options</a>
+    </div>
+  </div>
+</section>
+
+
+<style>
+  .accom-tabs {
+    display: flex; gap: 0; margin-bottom: 3rem;
+    border-bottom: 2px solid var(--sand-dark);
+    flex-wrap: wrap;
+  }
+  .accom-tab {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 0.75rem; font-weight: 600;
+    letter-spacing: 2px; text-transform: uppercase;
+    color: var(--earth-light); background: none; border: none;
+    padding: 1rem 2rem; cursor: pointer;
+    border-bottom: 3px solid transparent; margin-bottom: -2px;
+    transition: color 0.3s, border-color 0.3s;
+  }
+  .accom-tab:hover { color: var(--earth); }
+  .accom-tab.active { color: var(--gold-dark); border-bottom-color: var(--gold); }
+  .accom-panel { display: block; }
+  .accom-panel.hidden { display: none; }
+  .accom-hero-img {
+    position: relative; height: 420px; overflow: hidden;
+    border-radius: 4px; margin-bottom: 2.5rem;
+  }
+  .accom-hero-img img {
+    width: 100%; height: 100%; object-fit: cover;
+    transition: transform 8s ease;
+  }
+  .accom-hero-img:hover img { transform: scale(1.04); }
+  .accom-hero-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to right, rgba(28,20,14,0.75) 0%, rgba(28,20,14,0.2) 60%, transparent 100%);
+    display: flex; align-items: flex-end; padding: 3rem;
+  }
+  .accom-hero-text { max-width: 500px; }
+  .accom-tier {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 0.65rem; letter-spacing: 4px; text-transform: uppercase;
+    color: var(--gold-light); margin-bottom: 0.6rem;
+  }
+  .accom-hero-text h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem; font-weight: 700; color: var(--white);
+    margin-bottom: 0.6rem; line-height: 1.2;
+  }
+  .accom-hero-text p {
+    font-size: 1rem; color: rgba(245,237,216,0.85); line-height: 1.7;
+  }
+  .accom-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.2rem;
+  }
+  .accom-card {
+    background: var(--white); border-radius: 4px; overflow: hidden;
+    box-shadow: 0 4px 20px rgba(61,43,31,0.08);
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  .accom-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 40px rgba(61,43,31,0.15);
+  }
+  .accom-img-wrap { position: relative; height: 200px; overflow: hidden; }
+  .accom-img-wrap img {
+    width: 100%; height: 100%; object-fit: cover;
+    transition: transform 0.5s;
+  }
+  .accom-card:hover .accom-img-wrap img { transform: scale(1.06); }
+  .accom-badge {
+    position: absolute; top: 0.8rem; right: 0.8rem;
+    background: var(--gold); color: var(--earth);
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 0.58rem; font-weight: 600; letter-spacing: 1.5px;
+    text-transform: uppercase; padding: 0.3rem 0.7rem; border-radius: 2px;
+  }
+  .accom-body { padding: 1.4rem; }
+  .accom-body h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem; font-weight: 700;
+    color: var(--earth); margin-bottom: 0.5rem;
+  }
+  .accom-body p {
+    font-size: 0.9rem; line-height: 1.7; color: var(--earth-mid);
+    margin-bottom: 1rem;
+  }
+  .accom-features {
+    display: flex; flex-wrap: wrap; gap: 0.4rem;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 0.6rem; letter-spacing: 1px;
+    color: var(--earth-light);
+  }
+  .accom-features span {
+    background: var(--sand); padding: 0.3rem 0.6rem; border-radius: 20px;
+  }
+  /* Camping specific */
+  .accom-grid-camping {
+    grid-template-columns: 1fr 1fr; gap: 2rem;
+  }
+  .accom-card-wide { grid-column: 1; }
+  .accom-card-wide .accom-img-wrap { height: 280px; }
+  .accom-camping-features {
+    background: var(--sand); border-radius: 4px; padding: 2.5rem;
+    border-left: 4px solid var(--gold);
+  }
+  .camp-feat-list { display: flex; flex-direction: column; gap: 1.2rem; }
+  .camp-feat {
+    display: flex; gap: 1rem; align-items: flex-start;
+  }
+  .camp-feat-icon {
+    font-size: 1.5rem; min-width: 36px;
+  }
+  .camp-feat strong {
+    display: block; font-family: 'Josefin Sans', sans-serif;
+    font-size: 0.7rem; letter-spacing: 1px; text-transform: uppercase;
+    color: var(--earth); margin-bottom: 0.2rem;
+  }
+  .camp-feat p {
+    font-size: 0.88rem; color: var(--earth-mid); line-height: 1.6; margin: 0;
+  }
+  @media (max-width: 1024px) {
+    .accom-grid { grid-template-columns: repeat(2, 1fr); }
+    .accom-grid-camping { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 768px) {
+    .accom-grid { grid-template-columns: 1fr; }
+    .accom-hero-img { height: 280px; }
+    .accom-hero-text h3 { font-size: 1.4rem; }
+    .accom-tab { padding: 0.8rem 1rem; font-size: 0.65rem; }
+  }
+</style>
+
+<script>
+function showAccom(tab) {
+  document.querySelectorAll('.accom-panel').forEach(p => p.classList.add('hidden'));
+  document.querySelectorAll('.accom-tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('accom-' + tab).classList.remove('hidden');
+  event.target.classList.add('active');
+}
+</script>
+
+<!-- ───────────── PARTNERS ───────────── -->
+<section id="partners">
+  <div class="container">
+    <div class="reveal" style="text-align:center; margin-bottom:1rem;">
+      <div class="section-label">For Travel Professionals</div>
+      <h2 class="section-title">Partner <em>Programme</em></h2>
+      <div class="divider center"></div>
+    </div>
+    <div class="partners-grid">
+      <div class="partner-box reveal-left">
+        <h3>Travel Agent Partnership</h3>
+        <p>Join our growing network of travel agent partners and offer your clients the very best of Tanzania. We provide dedicated trade support, competitive commissions, and co-branded materials.</p>
+        <ul class="partner-perks">
+          <li>Competitive commission structure on all bookings</li>
+          <li>Dedicated partner account manager</li>
+          <li>Priority booking access & availability updates</li>
+          <li>Co-branded itinerary materials for your clients</li>
+          <li>Familiarisation trips for qualifying partners</li>
+          <li>24/7 in-destination support for your clients</li>
+        </ul>
+        <a href="#contact" class="btn-primary">Become a Partner</a>
+      </div>
+      <div class="partner-box reveal-right">
+        <h3>Why Partner with Yofox?</h3>
+        <p>We're a trusted, on-the-ground operator with deep relationships across Tanzania's parks, lodges and national authorities. Your clients are in expert hands from the moment they land.</p>
+        <ul class="partner-perks">
+          <li>ATOL-friendly ticketing support</li>
+          <li>Flexible group booking terms</li>
+          <li>Specialised luxury & honeymoon packages</li>
+          <li>UK contact available for easy correspondence</li>
+          <li>Transparent, no-surprise pricing</li>
+          <li>Fully customisable itineraries for every client</li>
+        </ul>
+        <a href="#contact" class="btn-outline" style="border-color:var(--gold-dark); color:var(--earth-mid);">Enquire Today</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+<!-- ───────────── MEET THE TEAM ───────────── -->
+<section id="team" style="background:var(--sand); padding:7rem 0;">
+  <div class="container">
+
+    <div class="reveal" style="text-align:center; margin-bottom:5rem;">
+      <div class="section-label">The People Behind The Magic</div>
+      <h2 class="section-title">Meet <em>The Team</em></h2>
+      <div class="divider center"></div>
+      <p class="lead-text" style="margin:0 auto; text-align:center;">
+        A great safari is only as good as the people who guide it. Our team combines deep local knowledge, genuine passion for Tanzania's wilderness, and a commitment to making every guest feel at home in the wild.
+      </p>
+    </div>
+
+    <!-- Team Cards -->
+    <div class="team-grid">
+
+      <!-- Yohana -->
+      <div class="team-card reveal">
+        <div class="team-img-wrap">
+          <img src="images/image_34.jpg" alt="Yohana Mollel - Founder & Lead Tour Guide">
+          <div class="team-img-overlay">
+            <img src="images/image_35.jpg" alt="Yohana on safari">
+          </div>
+        </div>
+        <div class="team-body">
+          <div class="team-flag">🇹🇿</div>
+          <h3 class="team-name">Yohana Mollel</h3>
+          <div class="team-role">Founder & Lead Safari Guide</div>
+          <div class="team-location">📍 Arusha, Tanzania</div>
+          <p class="team-bio">
+            Born and raised in the shadow of Kilimanjaro, Yohana has spent his life exploring Tanzania's extraordinary wilderness. As founder of Yofox African Adventures, his passion for wildlife, deep knowledge of every park and track, and infectious warmth have made him one of the most sought-after guides in the region.
+          </p>
+          <p class="team-bio">
+            Whether spotting a leopard hidden in the tree line or sharing stories of the Maasai around a campfire, Yohana's guiding is as much about human connection as it is about wildlife. His guests don't just see Africa — they feel it.
+          </p>
+          <div class="team-skills">
+            <span>Wildlife Tracking</span>
+            <span>Birding</span>
+            <span>Kilimanjaro Routes</span>
+            <span>Maasai Culture</span>
+            <span>Photography Guiding</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Fox -->
+      <div class="team-card reveal">
+        <div class="team-img-wrap team-img-placeholder">
+          <div class="team-initials">FC</div>
+        </div>
+        <div class="team-body">
+          <div class="team-flag">🇬🇧</div>
+          <h3 class="team-name">Fox Collinson</h3>
+          <div class="team-role">UK Co-ordinator</div>
+          <div class="team-location">📍 United Kingdom</div>
+          <p class="team-bio">
+            Fox is the friendly first point of contact for clients across the UK and Europe. Bridging the gap between our guests and the magic happening on the ground in Tanzania, Fox handles all enquiries, itinerary planning correspondence and booking support from the UK.
+          </p>
+          <p class="team-bio">
+            Whether you're just beginning to dream about your African adventure or you're ready to book, Fox will guide you through every step of the process — ensuring your experience is perfectly tailored before you even set foot on the plane.
+          </p>
+          <div class="team-skills">
+            <span>Client Liaison</span>
+            <span>Itinerary Planning</span>
+            <span>UK & Europe Bookings</span>
+            <span>Travel Agent Support</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Coming Soon placeholder -->
+      <div class="team-card team-card-soon reveal">
+        <div class="team-img-wrap team-img-placeholder team-img-soon">
+          <div class="team-soon-icon">+</div>
+        </div>
+        <div class="team-body" style="text-align:center; display:flex; flex-direction:column; align-items:center; justify-content:center; flex:1;">
+          <h3 class="team-name" style="color:var(--earth-light);">More Guides Coming Soon</h3>
+          <div class="team-role">Tanzania Field Team</div>
+          <p class="team-bio" style="text-align:center;">
+            We are proud to work with a talented and passionate team of local guides across Tanzania's parks. Watch this space as we introduce the rest of the Yofox family.
+          </p>
+          <a href="#contact" class="btn-primary" style="margin-top:1.5rem; font-size:0.65rem; padding:0.8rem 1.8rem;">Get in Touch</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<style>
+  .team-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    align-items: start;
+  }
+  .team-card {
+    background: var(--white);
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 6px 30px rgba(61,43,31,0.1);
+    transition: transform 0.35s, box-shadow 0.35s;
+    display: flex; flex-direction: column;
+  }
+  .team-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 50px rgba(61,43,31,0.18);
+  }
+  .team-img-wrap {
+    position: relative; height: 340px; overflow: hidden;
+    background: var(--earth);
+  }
+  .team-img-wrap img {
+    width: 100%; height: 100%; object-fit: cover;
+    object-position: top center;
+    transition: opacity 0.5s, transform 0.6s;
+  }
+  .team-img-overlay {
+    position: absolute; inset: 0; opacity: 0;
+    transition: opacity 0.5s;
+  }
+  .team-img-overlay img {
+    width: 100%; height: 100%; object-fit: cover;
+    object-position: center;
+  }
+  .team-card:hover .team-img-overlay { opacity: 1; }
+  .team-img-placeholder {
+    display: flex; align-items: center; justify-content: center;
+    background: linear-gradient(135deg, var(--earth) 0%, var(--earth-mid) 100%);
+  }
+  .team-initials {
+    font-family: 'Playfair Display', serif;
+    font-size: 5rem; font-weight: 900;
+    color: rgba(201,168,76,0.4);
+    letter-spacing: -4px;
+  }
+  .team-img-soon {
+    background: linear-gradient(135deg, var(--sand-dark) 0%, var(--sand) 100%);
+  }
+  .team-soon-icon {
+    font-size: 4rem; color: var(--gold);
+    font-family: 'Josefin Sans', sans-serif; font-weight: 300;
+  }
+  .team-body {
+    padding: 2rem;
+    flex: 1; display: flex; flex-direction: column;
+  }
+  .team-flag { font-size: 1.5rem; margin-bottom: 0.5rem; }
+  .team-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem; font-weight: 700;
+    color: var(--earth); margin-bottom: 0.2rem;
+  }
+  .team-role {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 0.65rem; font-weight: 600;
+    letter-spacing: 2.5px; text-transform: uppercase;
+    color: var(--gold-dark); margin-bottom: 0.4rem;
+  }
+  .team-location {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 0.65rem; letter-spacing: 1px;
+    color: var(--earth-light); margin-bottom: 1.2rem;
+  }
+  .team-bio {
+    font-size: 0.95rem; line-height: 1.8;
+    color: var(--earth-mid); margin-bottom: 0.8rem;
+    flex-grow: 0;
+  }
+  .team-skills {
+    display: flex; flex-wrap: wrap; gap: 0.4rem;
+    margin-top: auto; padding-top: 1.2rem;
+    border-top: 1px solid var(--sand-dark);
+  }
+  .team-skills span {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 0.58rem; letter-spacing: 1px; text-transform: uppercase;
+    background: var(--sand); color: var(--earth-mid);
+    padding: 0.3rem 0.7rem; border-radius: 20px;
+    border: 1px solid var(--sand-dark);
+  }
+  .team-card-soon { border: 2px dashed var(--sand-dark); box-shadow: none; background: var(--ivory); }
+  .team-card-soon:hover { transform: none; box-shadow: none; }
+  @media (max-width: 1024px) {
+    .team-grid { grid-template-columns: 1fr 1fr; }
+    .team-card-soon { display: none; }
+  }
+  @media (max-width: 768px) {
+    .team-grid { grid-template-columns: 1fr; }
+  }
+</style>
+
+<!-- ───────────── CONTACT ───────────── -->
+<section id="contact">
+  <div class="container">
+    <div class="contact-inner">
+      <div class="contact-info reveal-left">
+        <div class="section-label">Get in Touch</div>
+        <h2 class="section-title" style="color:var(--sand);">Let's Plan Your <em style="color:var(--gold-light);">Dream Trip</em></h2>
+        <div class="divider" style="background:var(--gold);"></div>
+        <p class="lead-text" style="color:rgba(245,237,216,0.75);">
+          Whether you have a detailed itinerary in mind or are starting from scratch, our team is ready to craft the perfect Tanzanian adventure for you.
+        </p>
+        <div class="contact-details">
+          <div class="c-detail">
+            <div class="c-icon">📍</div>
+            <div class="c-text">
+              <strong>Tanzania Office</strong>
+              Arusha, Tanzania · Gateway to the National Parks
+            </div>
+          </div>
+          <div class="c-detail">
+            <div class="c-icon">🇬🇧</div>
+            <div class="c-text">
+              <strong>UK Representative</strong>
+              Available for correspondence across UK & Europe
+            </div>
+          </div>
+          <div class="c-detail">
+            <div class="c-icon">📧</div>
+            <div class="c-text">
+              <strong>Email Us</strong>
+              info@yofoxafricanadventures.com
+            </div>
+          </div>
+          <div class="c-detail">
+            <div class="c-icon">📱</div>
+            <div class="c-text">
+              <strong>WhatsApp</strong>
+              Available for quick enquiries — we respond fast
+            </div>
+          </div>
+          <div class="c-detail">
+            <div class="c-icon">🌐</div>
+            <div class="c-text">
+              <strong>Worldwide Clients Welcome</strong>
+              We work with travellers from every continent
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-form reveal-right">
+        <div id="formWrap">
+          <div class="form-title">Book Your Adventure</div>
+          <p class="form-subtitle">Complete the form and we'll be in touch within 24 hours</p>
+          <div class="form-row">
+            <div class="form-group">
+              <label>First Name *</label>
+              <input type="text" id="fname" placeholder="Jane" required>
+            </div>
+            <div class="form-group">
+              <label>Last Name *</label>
+              <input type="text" id="lname" placeholder="Smith" required>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Email Address *</label>
+              <input type="email" id="email" placeholder="jane@example.com" required>
+            </div>
+            <div class="form-group">
+              <label>Phone / WhatsApp</label>
+              <input type="tel" id="phone" placeholder="+44 7700 000000">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Country of Residence</label>
+              <input type="text" id="country" placeholder="United Kingdom">
+            </div>
+            <div class="form-group">
+              <label>Enquiry Type</label>
+              <select id="enquiry-type">
+                <option value="">Select...</option>
+                <option>Safari Package</option>
+                <option>Kilimanjaro Trek</option>
+                <option>Zanzibar Trip</option>
+                <option>Airport Transfer</option>
+                <option>Cultural Experience</option>
+                <option>Travel Agent Partnership</option>
+                <option>Other / Custom Package</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Approximate Travel Dates</label>
+              <input type="text" id="dates" placeholder="e.g. July 2025, 2 weeks">
+            </div>
+            <div class="form-group">
+              <label>Number of Travellers</label>
+              <select id="pax">
+                <option value="">Select...</option>
+                <option>Solo traveller</option>
+                <option>2 people</option>
+                <option>3–4 people</option>
+                <option>5–8 people</option>
+                <option>9+ / Group</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Tell Us About Your Dream Trip</label>
+            <textarea id="message" placeholder="Parks you'd love to visit, any special requirements, activities of interest, accommodation preferences..."></textarea>
+          </div>
+          <button class="form-submit" onclick="submitForm()">Send Enquiry →</button>
+          <p class="form-note">🔒 Your information is kept private. We never share your details.</p>
+        </div>
+        <div class="success-msg" id="successMsg">
+          <div class="icon">🌍</div>
+          <h3>Enquiry Received — Asante Sana!</h3>
+          <p style="color:var(--earth-mid); font-size:1rem; line-height:1.7; margin-top:0.5rem;">
+            Thank you for reaching out to Yofox African Adventures. Our team will review your enquiry and get back to you within 24 hours to start planning your perfect Tanzanian adventure.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ───────────── FOOTER ───────────── -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-about">
+        <a href="#" class="nav-logo" style="margin-bottom:1rem; display:inline-flex;">
+          <svg width="38" height="38" viewBox="0 0 44 44" fill="none"><circle cx="22" cy="22" r="21" stroke="#C9A84C" stroke-width="1.5"/><path d="M22 36 L22 22" stroke="#C9A84C" stroke-width="2" stroke-linecap="round"/><ellipse cx="22" cy="18" rx="12" ry="7" fill="#C9A84C" opacity="0.85"/><ellipse cx="15" cy="20" rx="7" ry="5" fill="#C9A84C" opacity="0.65"/><ellipse cx="29" cy="20" rx="7" ry="5" fill="#C9A84C" opacity="0.65"/></svg>
+          <div class="nav-logo-text" style="margin-left:0.8rem;">
+            <span>YOFOX</span>
+            <span>African Adventures</span>
+          </div>
+        </a>
+        <p>Expert safari guides based in Arusha, Tanzania. Crafting unforgettable, fully bespoke African adventures for travellers from every corner of the world since 2010.</p>
+        <div class="social-links" style="margin-top:1.5rem;">
+          <a href="#" class="social-link" title="Facebook">f</a>
+          <a href="#" class="social-link" title="Instagram">ig</a>
+          <a href="#" class="social-link" title="WhatsApp">wa</a>
+          <a href="#" class="social-link" title="TripAdvisor">ta</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Experiences</h4>
+        <ul>
+          <li><a href="#safaris">Serengeti Safari</a></li>
+          <li><a href="#safaris">Ngorongoro Crater</a></li>
+          <li><a href="#safaris">Kilimanjaro Treks</a></li>
+          <li><a href="#safaris">Zanzibar Escapes</a></li>
+          <li><a href="#safaris">Coffee & Waterfalls</a></li>
+          <li><a href="#safaris">Airport Transfers</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Information</h4>
+        <ul>
+          <li><a href="#about">About Yofox</a></li>
+          <li><a href="#parks">National Parks</a></li>
+          <li><a href="#partners">Travel Agents</a></li>
+          <li><a href="#contact">Contact Us</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="#">📍 Arusha, Tanzania</a></li>
+          <li><a href="#">🇬🇧 UK Representative</a></li>
+          <li><a href="mailto:info@yofoxafricanadventures.com">✉️ Email Us</a></li>
+          <li><a href="#">📱 WhatsApp</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 Yofox African Adventures · Arusha, Tanzania · All Rights Reserved</p>
+      <p>Designed with ❤️ for the wild</p>
+    </div>
+  </div>
+</footer>
+
+<!-- ───────────── LIGHTBOX ───────────── -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+  <img id="lightboxImg" src="" alt="">
+</div>
+
+<script>
+  // NAV scroll effect
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 60);
+  });
+
+  // Scroll reveal
+  const revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        // stagger siblings
+        const siblings = e.target.parentElement.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+        siblings.forEach((s, i) => {
+          s.style.transitionDelay = (i * 0.08) + 's';
+        });
+      }
+    });
+  }, { threshold: 0.1 });
+  revealEls.forEach(el => observer.observe(el));
+
+  // Lightbox
+  function openLightbox(el) {
+    const img = el.querySelector('img');
+    document.getElementById('lightboxImg').src = img.src;
+    document.getElementById('lightbox').classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeLightbox() {
+    document.getElementById('lightbox').classList.remove('active');
+    document.body.style.overflow = '';
+  }
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+
+  // Form submit
+  function submitForm() {
+    const fname = document.getElementById('fname').value.trim();
+    const email = document.getElementById('email').value.trim();
+    if (!fname || !email) {
+      alert('Please fill in your name and email address.');
+      return;
+    }
+    document.getElementById('formWrap').style.display = 'none';
+    document.getElementById('successMsg').classList.add('visible');
+  }
+
+  // Mobile menu
+  function toggleMenu() {
+    const links = document.querySelector('.nav-links');
+    if (links.style.display === 'flex') {
+      links.style.display = 'none';
+    } else {
+      links.style.cssText = 'display:flex; flex-direction:column; position:fixed; top:70px; left:0; right:0; background:rgba(28,20,14,0.98); padding:2rem; gap:1.5rem; z-index:999;';
+    }
+  }
+
+  // Smooth close mobile menu on link click
+  document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+      const links = document.querySelector('.nav-links');
+      if (window.innerWidth < 768) links.style.display = 'none';
+    });
+  });
+</script>
+</body>
+</html>
